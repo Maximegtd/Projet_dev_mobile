@@ -12,6 +12,7 @@ import com.example.projet_dev_mobile.adapter.ParkAdapter
 import com.example.projet_dev_mobile.adapter.ParkApi
 import com.example.projet_dev_mobile.api.RetrofitHelper
 import com.example.projet_dev_mobile.databinding.FragmentParkBinding
+import com.example.projet_dev_mobile.model.allParks
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -39,6 +40,8 @@ class ParkFragment : Fragment() {
         parkViewModel.parks.observe(viewLifecycleOwner) {
             recyclerViewPark.adapter = ParkAdapter(it, requireContext())
             recyclerViewPark.layoutManager = LinearLayoutManager(requireContext())
+
+            allParks = it
         }
 
         val parkApi = RetrofitHelper().getInstance().create(ParkApi::class.java)

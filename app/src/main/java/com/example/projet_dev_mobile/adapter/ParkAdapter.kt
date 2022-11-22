@@ -6,6 +6,7 @@ import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
@@ -23,6 +24,7 @@ class ParkAdapter(private val parks:List<Park>, private val context: Context) : 
         val name: TextView = itemView.findViewById(R.id.name)
         val disponibilite: TextView = itemView.findViewById(R.id.disponibilite)
         val distance : TextView = itemView.findViewById((R.id.distance))
+        val parkStatus : ImageView = itemView.findViewById((R.id.parkStatus))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,6 +49,11 @@ class ParkAdapter(private val parks:List<Park>, private val context: Context) : 
             parkSelected = park
 
             context.startActivity(intent)
+        }
+        if(park.grpDisponible == 0) {
+            holder.parkStatus.setImageResource(R.drawable.ic_baseline_local_parking_red_24)
+        } else {
+            holder.parkStatus.setImageResource(R.drawable.ic_baseline_local_parking_blue_24)
         }
     }
 

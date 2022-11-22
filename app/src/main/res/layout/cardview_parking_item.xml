@@ -17,12 +17,11 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:text="@string/nom_parking"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.509" />
+            app:layout_constraintBottom_toBottomOf="@+id/parkStatus"
+            app:layout_constraintStart_toEndOf="@+id/parkStatus"
+            app:layout_constraintTop_toTopOf="@+id/parkStatus" />
 
         <TextView
             android:id="@+id/disponibilite"
@@ -38,11 +37,21 @@
             android:id="@+id/distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:text="@string/park_distance_holder"
             app:layout_constraintBottom_toBottomOf="@+id/name"
             app:layout_constraintStart_toEndOf="@+id/name"
             app:layout_constraintTop_toTopOf="@+id/name" />
+
+        <ImageView
+            android:id="@+id/parkStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_local_parking_blue_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
