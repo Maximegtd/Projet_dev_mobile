@@ -31,17 +31,17 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
-        val recyclerView = binding.recyclerView
+        val recyclerViewStation = binding.recyclerViewStation
         val progressBarStations = binding.progressBarStations
 
         homeViewModel.stations.observe(viewLifecycleOwner) {
-            recyclerView.adapter = StationAdapter(it, requireContext())
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerViewStation.adapter = StationAdapter(it, requireContext())
+            recyclerViewStation.layoutManager = LinearLayoutManager(requireContext())
             progressBarStations.visibility = View.GONE
 
             allStations=it

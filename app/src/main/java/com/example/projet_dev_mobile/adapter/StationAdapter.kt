@@ -16,7 +16,6 @@ import com.example.projet_dev_mobile.model.Station
 import com.example.projet_dev_mobile.model.currentLocation
 import com.example.projet_dev_mobile.model.stationSelected
 import com.example.projet_dev_mobile.ui.station.StationMapsActivity
-import kotlin.math.roundToLong
 
 class StationAdapter(private val stations:List<Station>, private val context: Context ) : RecyclerView.Adapter<StationAdapter.ViewHolder>() {
 
@@ -30,7 +29,7 @@ class StationAdapter(private val stations:List<Station>, private val context: Co
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_item, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_station_item, parent,false)
         return ViewHolder(view)
     }
 
@@ -71,5 +70,4 @@ class StationAdapter(private val stations:List<Station>, private val context: Co
     override fun getItemCount(): Int {
         return stations.size
     }
-
 }

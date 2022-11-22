@@ -3,7 +3,6 @@ package com.example.projet_dev_mobile
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.navigation.findNavController
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_park, R.id.navigation_notifications
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -65,11 +64,6 @@ class MainActivity : AppCompatActivity() {
         task.addOnSuccessListener { location ->
             if (location != null) {
                 currentLocation = location
-                Toast.makeText(
-                    this,
-                    location.latitude.toString() + " : " + location.longitude.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         }
     }
